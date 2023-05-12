@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*Header*/
+.logo_oasis{
+    width: 10rem;
+}
+
+.user_picture{
+    width: 2rem;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+/*Main search*/
+main{
+    background-color: rgb(242, 240, 240);
+    padding: 0 8rem !important;
+}
+
+.search{
+    width: 2rem;
+    object-fit: cover;
+}
+
+.search_bar{
+    padding: 0.5rem 0.4rem;
+    background-color: white;
+    box-shadow: 4px 6px 7px rgb(225 223 223);
+}
+
+.search_bar input{
+    width: 100%;
+    border: none;
+}
+
+/*Cards*/
+.input_type select{
+    box-shadow: 4px 6px 7px rgb(225 223 223);
+}
+
+.card{
+    width: 14rem;
+    height: 20rem;
+    box-shadow: 4px 8px 7px rgb(225 223 223);
+}
+
+.cards_product img{
+    height: 10rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+/*Footer*/
+.socialIcon {
+    width: 2rem;
+}
