@@ -54,7 +54,17 @@ main{
     object-fit: cover;
 }
 
+h6, small, p, span, a{
+    text-decoration: none !important;
+}
+
 /*Footer*/
 .socialIcon {
     width: 2rem;
+}
+
+@media only screen and (max-width: 600px){
+    main{
+        padding: 0 3rem !important;
+    }
 }

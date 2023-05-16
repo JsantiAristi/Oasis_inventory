@@ -18,34 +18,23 @@
 /*Main search*/
 main{
     background-color: rgb(242, 240, 240);
+    padding: 3rem;
 }
 
-.div_form{
+.info_details{
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
-.form_create{
-    width: 500px;
+.info_details img{
+    width: 13rem;
+    height: 10rem;
+    object-fit: cover;
+    border-radius: 10%;
 }
 
-.form_create label{
-    width: 12rem;
-    font-size: 0.9rem;
-}
-
-.form_create input, .form_create textarea, .form_create select{
-    width: 326px;
-}
-
-.form_create button{
-    width: 100%;
-}
-
-.btn_add_product{
-    background-color: rgb(97, 218, 178) !important;
-    color: white !important;
+.tittle{
+    color: rgb(163, 159, 159);
 }
 
 /*Footer*/
@@ -53,8 +42,8 @@ main{
     width: 2rem;
 }
 
-@media only screen and (max-width: 500px){
-    .div_form{
+@media only screen and (max-width: 576px){
+    .info_details{
         display: flex;
         flex-direction: column;
         justify-content: center;

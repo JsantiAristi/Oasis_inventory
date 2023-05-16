@@ -22,4 +22,9 @@ public class ProductsServiceImplement implements ProductsService {
     @Override
     public List<ProductsDTO> getProducts() {
         return productsRepository.findAll().stream().map(ProductsDTO::new).collect(toList());}
+
+    @Override
+    public ProductsDTO getProduct(Long id) {
+        return new ProductsDTO(productsRepository.findById(id).orElse(null));
+    }
 }
