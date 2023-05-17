@@ -7,10 +7,11 @@ createApp({
             data_type: [],
             name: "",
             description: "",
-            image: "",
+            image: "../assets/agregar-producto.png",
             type: "",
             price: "",
             quantity: "",
+            permitExtension: /(.PNG|.JPG|.png|.jpg)$/i,
 
         }
     },
@@ -26,6 +27,15 @@ createApp({
                 this.data_type = Array.from(new Set(this.data.map(product => product.type)));
             })
             .catch(error => console.log(error))
+        },
+        changePicture(e){
+            if (!this.permitExtension.exec(e.target.files[0].name)) {
+                alert("Selecciona solo archivos de imagen")
+            }else if (e.target.files[0]) {
+                this.image = URL.createObjectURL(e.target.files[0])
+            } else {
+                this.image = "../assets/agregar-producto.png"
+            }
         },
         add_product(){
             axios.post('/api/clients/products',

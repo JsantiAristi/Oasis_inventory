@@ -48,6 +48,13 @@ main{
     color: white !important;
 }
 
+.productImage{
+    width: 9rem;
+    height: 9rem;
+    border: 1px solid black;
+    border-radius: 10%;
+}
+
 /*Footer*/
 .socialIcon {
     width: 2rem;
