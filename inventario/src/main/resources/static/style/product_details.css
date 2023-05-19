@@ -37,6 +37,10 @@ main{
     color: rgb(163, 159, 159);
 }
 
+.btn{
+    width: 12rem !important;
+}
+
 /*Footer*/
 .socialIcon {
     width: 2rem;

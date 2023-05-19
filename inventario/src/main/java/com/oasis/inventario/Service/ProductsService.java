@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ProductsService {
     void saveProduct(Products products);
-    List<ProductsDTO> getProducts();
-    ProductsDTO getProduct(Long id);
+    List<ProductsDTO> getProductsDTO();
+    ProductsDTO getProductDTO(Long id);
+    Products getProduct(Long id);
 }

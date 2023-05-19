@@ -20,11 +20,16 @@ public class ProductsServiceImplement implements ProductsService {
     }
 
     @Override
-    public List<ProductsDTO> getProducts() {
+    public List<ProductsDTO> getProductsDTO() {
         return productsRepository.findAll().stream().map(ProductsDTO::new).collect(toList());}
 
     @Override
-    public ProductsDTO getProduct(Long id) {
+    public ProductsDTO getProductDTO(Long id) {
         return new ProductsDTO(productsRepository.findById(id).orElse(null));
+    }
+
+    @Override
+    public Products getProduct(Long id) {
+        return productsRepository.findById(id).orElse(null);
     }
 }
