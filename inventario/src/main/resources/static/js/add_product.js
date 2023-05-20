@@ -23,7 +23,6 @@ createApp({
             axios.get('/api/clients/products')
             .then(res => {
                 this.data = res.data
-                console.log(this.data);
                 this.data_type = Array.from(new Set(this.data.map(product => product.type)));
             })
             .catch(error => console.log(error))
@@ -47,8 +46,18 @@ createApp({
                 "image": this.image,
                 "price": this.price
             })
-            .then(res => window.location.href="/pages/products.html")
-            .catch(error => console.log(error))
+            .then(res => { Swal.fire({
+                icon: 'success',
+                text: 'Añadiste un nuevo producto',
+                showConfirmButton: false,
+                timer: 2000
+                }).then(() => window.location.href="/pages/products.html")
+            })
+            .catch(error => { Swal.fire({
+                icon: 'error',
+                text: error.response.data   
+                })
+            })
         }
     }
 }).mount('#app')

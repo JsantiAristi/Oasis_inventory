@@ -9,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
 
 @RestController
 public class ProductsController {
@@ -29,6 +32,7 @@ public class ProductsController {
 
         String description = null;
         String image = null;
+        List<ProductsDTO> productsDTO = productsService.getProductsDTO();
 
         if ( products.getDescription().isBlank() ){
             description = "Sin descripción";
@@ -42,8 +46,12 @@ public class ProductsController {
             image = products.getImage();
         }
 
-        Products newproduct = new Products(products.getName(),description,products.getType(),products.getQuantity(),image,products.getPrice());
-        productsService.saveProduct(newproduct);
+        if( !(productsDTO.stream().filter( productsDB -> productsDB.getName().equalsIgnoreCase(products.getName())).collect(toList()).size() == 0) ){
+            return new ResponseEntity<>("Este nombre ya existe en otro producto" , HttpStatus.BAD_REQUEST);
+        }
+
+        Products newProduct = new Products(products.getName(),description,products.getType(),products.getQuantity(),image,products.getPrice());
+        productsService.saveProduct(newProduct);
 
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
